@@ -7,3 +7,14 @@ fetch(endpoint)
     // needs to have a spread operator so it will not be nested
     // another solution is changing const to let for cities = []
     .then(data => cities.push(...data))
+
+
+function findMatches(wordsToMatch, cities) {
+        // filter the cities accdg to user's input
+        return cities.filter(place => {
+        // g - global, i - insensitive (lowercase && uppercase)
+        const regex = new RegExp(wordsToMatch, 'gi')
+        place.cities.match(regex) || place.state.match(regex)
+    })
+}
+
